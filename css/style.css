@@ -1,0 +1,430 @@
+/* ============================================================
+   ميثاق — منصة الاعتماد المؤسسي والبرامجي
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #132A3A;
+  --navy-2: #1C3A4F;
+  --navy-3: #23485F;
+  --parchment: #EDEAE0;
+  --parchment-2: #E1DCC9;
+  --gold: #C9A227;
+  --gold-light: #E4C567;
+  --burgundy: #8C2F39;
+  --text-light: #F3F1EA;
+  --text-navy: #16222C;
+  --muted: #7C8B95;
+  --radius: 4px;
+  --font-display: 'Markazi Text', serif;
+  --font-body: 'Cairo', sans-serif;
+  --shadow: 0 12px 30px rgba(19, 42, 58, 0.18);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--parchment);
+  color: var(--text-navy);
+  line-height: 1.7;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Header ---------- */
+header.site-header {
+  background: var(--navy);
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.brand .seal-mini { width: 34px; height: 34px; }
+
+.main-nav ul {
+  display: flex;
+  gap: 32px;
+}
+
+.main-nav a {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* زر القائمة للموبايل — INTERN-TASK #1: الزر موجود بالتنسيق الكامل
+   لكنه بلا أي وظيفة برمجية حتى الآن. راجع js/script.js */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(228, 197, 103, .4);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold-light);
+  position: relative;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 4px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 55%, var(--navy-3) 100%);
+  color: var(--text-light);
+  padding: 90px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: .4px;
+  color: var(--gold-light);
+  border: 1px solid rgba(228,197,103,.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1.25;
+  margin: 0 0 22px;
+  color: var(--text-light);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.hero p.lead {
+  font-size: 18px;
+  color: rgba(243,241,234,.82);
+  max-width: 46ch;
+  margin-bottom: 34px;
+}
+
+.btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { box-shadow: 0 10px 22px rgba(201,162,39,.35); }
+
+.btn-outline { border-color: rgba(243,241,234,.4); color: var(--text-light); }
+.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+/* الختم / الشعار الرسمي — العنصر المميز للتصميم */
+.seal-wrap { display: flex; justify-content: center; align-items: center; }
+.seal {
+  width: 260px;
+  height: 260px;
+  animation: seal-stamp 900ms cubic-bezier(.2,1.4,.4,1) both;
+  animation-delay: .15s;
+}
+@keyframes seal-stamp {
+  0%   { transform: scale(2.4) rotate(-14deg); opacity: 0; }
+  60%  { transform: scale(.94) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal { animation: none; }
+}
+
+/* ---------- Stats ---------- */
+.stats {
+  background: var(--text-light);
+  border-bottom: 1px solid var(--parchment-2);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 46px 0;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--navy);
+}
+/* INTERN-TASK #8: الأرقام هنا ثابتة. المطلوب تشغيل عداد تصاعدي
+   عند دخول القسم إلى نطاق الرؤية (Intersection Observer) —
+   الدالة animateCounters() في js/script.js موجودة لكنها فارغة. */
+.stat-label { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+/* ---------- Sections ---------- */
+section { padding: 90px 0; }
+.section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+.section-head .eyebrow { background: rgba(19,42,58,.05); color: var(--burgundy); border-color: rgba(140,47,57,.25); }
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: 38px;
+  margin: 14px 0 12px;
+  color: var(--navy);
+}
+.section-head p { color: var(--muted); font-size: 16px; }
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.pillar-card {
+  background: #fff;
+  border: 1px solid var(--parchment-2);
+  border-radius: var(--radius);
+  padding: 32px 26px;
+  box-shadow: var(--shadow);
+}
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+.pillar-card h3 { margin: 0 0 10px; font-size: 20px; color: var(--navy); }
+.pillar-card p { color: var(--muted); font-size: 15px; margin: 0; }
+
+/* ---------- About / split ---------- */
+.about-section { background: var(--navy); color: var(--text-light); }
+.split {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+.about-section .section-head { text-align: right; margin: 0 0 24px; max-width: none; }
+.about-section .section-head .eyebrow { background: rgba(228,197,103,.12); color: var(--gold-light); border-color: rgba(228,197,103,.3); }
+.about-section .section-head h2 { color: var(--text-light); }
+.about-section .section-head p { color: rgba(243,241,234,.75); }
+
+.checklist { display: grid; gap: 16px; margin-top: 26px; }
+.checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: rgba(243,241,234,.9);
+  font-size: 15px;
+}
+.checklist svg { flex-shrink: 0; margin-top: 3px; }
+
+.doc-card {
+  background: var(--navy-2);
+  border: 1px solid rgba(228,197,103,.25);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.doc-card h4 { font-family: var(--font-display); font-size: 22px; margin: 0 0 6px; color: var(--gold-light); }
+.doc-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed rgba(243,241,234,.15); font-size: 14px; }
+.doc-row:last-child { border-bottom: none; }
+.doc-row span:last-child { color: var(--gold-light); font-weight: 600; }
+
+/* ---------- CTA ---------- */
+.cta {
+  background: var(--burgundy);
+  color: var(--text-light);
+  text-align: center;
+  padding: 70px 0;
+}
+.cta h2 { font-family: var(--font-display); font-size: 34px; margin: 0 0 14px; }
+.cta p { color: rgba(243,241,234,.85); margin-bottom: 30px; }
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  background: #0F212D;
+  color: rgba(243,241,234,.7);
+  padding: 50px 0 26px;
+  font-size: 14px;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 34px; }
+.footer-grid h5 { color: var(--gold-light); font-size: 15px; margin: 0 0 14px; }
+.footer-grid ul li { margin-bottom: 10px; }
+.footer-bottom { border-top: 1px solid rgba(243,241,234,.1); padding-top: 20px; text-align: center; color: rgba(243,241,234,.45); }
+/* INTERN-TASK #10: السنة هنا مكتوبة يدويًا بدل قراءتها من Date()
+   الحالية عبر جافاسكريبت — لاحظ عنصر #year في index/about/services/contact */
+
+/* ---------- Back to top ---------- */
+.back-top {
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: none; /* INTERN-TASK #6: يجب إظهار الزر عبر JS بعد تمرير
+                     الصفحة مسافة معينة، وإخفاؤه عند العودة لأعلى.
+                     راجع onScroll() في js/script.js */
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Page header (inner pages) ---------- */
+.page-header {
+  background: var(--navy);
+  color: var(--text-light);
+  padding: 64px 0 54px;
+}
+.page-header .eyebrow { background: rgba(228,197,103,.12); color: var(--gold-light); border-color: rgba(228,197,103,.3); }
+.page-header h1 { font-family: var(--font-display); font-size: 42px; margin: 14px 0 10px; }
+.page-header p { color: rgba(243,241,234,.75); max-width: 60ch; }
+
+/* ---------- Services / accordion ---------- */
+.services-grid { display: grid; gap: 20px; }
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--parchment-2);
+  border-radius: var(--radius);
+}
+.faq-q {
+  width: 100%;
+  text-align: right;
+  background: none;
+  border: none;
+  padding: 22px 26px;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-q .plus { color: var(--gold); font-size: 22px; transition: transform .2s ease; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .25s ease;
+  padding: 0 26px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.faq-item.open .faq-a { max-height: 240px; padding-bottom: 22px; }
+/* INTERN-TASK #5: الأكورديون يعمل فقط على العنصر الأول لأن
+   الكود في js/script.js يستخدم querySelector بدل querySelectorAll
+   عند ربط الحدث click. */
+
+/* ---------- Programs table ---------- */
+.programs-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+.programs-table th, .programs-table td { padding: 16px 18px; text-align: right; border-bottom: 1px solid var(--parchment-2); font-size: 14.5px; }
+.programs-table th { background: var(--navy); color: var(--text-light); font-weight: 600; }
+.badge { padding: 4px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+.badge-full { background: rgba(140,47,57,.1); color: var(--burgundy); }
+.badge-part { background: rgba(201,162,39,.15); color: #8a6c14; }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.info-card { background: var(--navy); color: var(--text-light); border-radius: var(--radius); padding: 36px; }
+.info-card h3 { font-family: var(--font-display); font-size: 24px; color: var(--gold-light); margin-top: 0; }
+.info-row { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px dashed rgba(243,241,234,.15); font-size: 14.5px; }
+.info-row:last-child { border-bottom: none; }
+
+.form-field { margin-bottom: 20px; }
+.form-field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--parchment-2);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  background: #fff;
+}
+.form-field textarea { resize: vertical; min-height: 110px; }
+.form-note { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.form-status { display: none; padding: 12px 16px; border-radius: var(--radius); font-size: 14px; margin-bottom: 18px; }
+.form-status.error { display: block; background: rgba(140,47,57,.08); color: var(--burgundy); }
+.form-status.success { display: block; background: rgba(76,140,90,.1); color: #2f6b3e; }
+/* INTERN-TASK #4: النموذج الآن يرسل حتى لو الحقول فارغة —
+   المطلوب إضافة تحقق (validation) قبل الإرسال وإظهار .form-status
+   بالحالة المناسبة. راجع handleContactSubmit() في js/script.js */
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .btn-row { justify-content: center; }
+  .seal-wrap { order: -1; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .about-section .section-head { text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .main-nav { display: none; }
+  .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; }
+}
