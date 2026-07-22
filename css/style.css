@@ -426,5 +426,23 @@ footer.site-footer {
   .footer-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .main-nav { display: none; }
+  .main-nav.open {
+    display: block;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    background: var(--navy);
+    width: 220px;
+    border: 1px solid rgba(228,197,103,.3);
+    border-radius: var(--radius);
+    padding: 15px;
+    z-index: 1000;
+}
+
+.main-nav.open ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
   .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; }
 }

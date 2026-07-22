@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تواصل معنا | ميثاق</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا | ميثاق</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <svg class="seal-mini" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="46" stroke="#E4C567" stroke-width="4"/><circle cx="50" cy="50" r="34" stroke="#E4C567" stroke-width="2"/><path d="M50 30 L56 46 L73 46 L59 56 L64 72 L50 62 L36 72 L41 56 L27 46 L44 46 Z" fill="#E4C567"/></svg>
+      <svg class="seal-mini" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#E4C567" stroke-width="4"/>
+        <circle cx="50" cy="50" r="34" stroke="#E4C567" stroke-width="2"/>
+        <path d="M50 30 L56 46 L73 46 L59 56 L64 72 L50 62 L36 72 L41 56 L27 46 L44 46 Z" fill="#E4C567"/>
+      </svg>
       ميثاق
     </a>
     <nav class="main-nav">
@@ -27,19 +31,18 @@
 
 <section class="page-header">
   <div class="wrap">
-    <span class="eyebrow">تواصل معنا</span>
-    <h1>لنبدأ مسار الاعتماد معًا</h1>
+<a href="#contact" class="eyebrow">تواصل معنا</a>    <h1>لنبدأ مسار الاعتماد معًا</h1>
     <p>عبّئ النموذج وسيتواصل معك أحد مستشاري الجودة خلال يومي عمل.</p>
   </div>
 </section>
 
-<section>
+ <section id="contact">
   <div class="wrap contact-grid">
     <div class="info-card">
       <h3>بيانات التواصل</h3>
       <div class="info-row">📍 القاهرة الجديدة — جمهورية مصر العربية</div>
-      <div class="info-row">✉️ info@mithaq-quality.example</div>
-      <div class="info-row">📞 +20 100 000 0000</div>
+      <div class="info-row">✉️ <a href="mailto:ahshji359@gamil.com">ahshji359@gamil.com</a></div>
+      <div class="info-row">📞 <a href="tel:+201026858147" dir="ltr">+20 1026858147</a></div>
       <div class="info-row">🕐 الأحد–الخميس، 9 صباحًا – 4 عصرًا</div>
     </div>
 
@@ -48,20 +51,21 @@
       <form id="contactForm" novalidate>
         <div class="form-field">
           <label for="fullName">الاسم بالكامل</label>
-          <input type="text" id="fullName" name="fullName">
+          <input type="text" id="fullName" name="fullName" required>
         </div>
         <div class="form-field">
           <label for="email">البريد الإلكتروني</label>
-          <input type="text" id="email" name="email">
+          <input type="email" id="email" name="email" required>
           <p class="form-note">سنستخدم بريدك فقط للرد على طلبك.</p>
         </div>
         <div class="form-field">
           <label for="institution">اسم المؤسسة التعليمية</label>
-          <input type="text" id="institution" name="institution">
+          <input type="text" id="institution" name="institution" required>
         </div>
         <div class="form-field">
           <label for="serviceType">نوع الخدمة المطلوبة</label>
-          <select id="serviceType" name="serviceType">
+          <select id="serviceType" name="serviceType" required>
+            <option value="" disabled selected>اختر الخدمة المطلوبة...</option>
             <option value="gap">تحليل فجوة</option>
             <option value="self-study">إعداد ملف تقويم ذاتي</option>
             <option value="training">ورشة تأهيل</option>
@@ -70,7 +74,7 @@
         </div>
         <div class="form-field">
           <label for="message">تفاصيل الطلب</label>
-          <textarea id="message" name="message"></textarea>
+          <textarea id="message" name="message" rows="4" required></textarea>
         </div>
         <button type="submit" class="btn btn-gold">إرسال الطلب</button>
       </form>
@@ -95,8 +99,8 @@
     <div>
       <h5>تواصل</h5>
       <ul>
-        <li>info@mithaq-quality.example</li>
-        <li>+20 100 000 0000</li>
+        <li><a href="mailto:ahshji359@gamil.com">ahshji359@gamil.com</a></li>
+        <li><a href="tel:+201026858147" dir="ltr">+20 1026858147</a></li>
       </ul>
     </div>
   </div>
